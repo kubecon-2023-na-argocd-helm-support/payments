@@ -1,12 +1,9 @@
 name: Release
 
 on:
-#  release:
-#    types:
-#      - created
-  push:
-    branches:
-    - main
+  release:
+    types:
+      - created
 
 env:
   REGISTRY: ghcr.io
@@ -19,12 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-#      - name: Image Tag
-#        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
-#        id: meta
-      - name: Image Tag
+        with:
+          fetch-depth: 0
+      - name: Meta
+        env:
+          REF_NAME: ${{github.ref_name}}
         run: |
-          echo "tags=ghcr.io/kubecon-2023-na-argocd-helm-support/payments:v0.1.0" >> "$GITHUB_OUTPUT"
+          echo "version=$REF_NAME" >> "$GITHUB_OUTPUT"
+          echo "tags=ghcr.io/kubecon-2023-na-argocd-helm-support/payments:$REF_NAME" >> "$GITHUB_OUTPUT"
         id: meta
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -45,10 +44,20 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
       - name: Install Helm
         uses: azure/setup-helm@v3
 
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.6.0
+      - name: Publish Helm Chart
         env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          VERSION: ${{ steps.meta.outputs.version }}
+        run: |
+          helm package --version $VERSION --app-version $VERSION charts/payments -d dist
+          git checkout gh-pages
+          mv dist/* .
+          helm repo index . --url https://kubecon-2023-na-argocd-helm-support.github.io/payments
+          git add . && git commit -m "Publish $VERSION" && git push origin gh-pages
