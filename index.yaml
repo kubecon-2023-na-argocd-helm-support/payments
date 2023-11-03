@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  payments-service:
+  - apiVersion: v2
+    appVersion: v0.1.0
+    created: "2023-11-03T20:49:37.986577864Z"
+    description: Awesome Payments Service
+    digest: a29dceef1ae6a79303b156e6468d3daf576530f447633661c3d4d5233607dd5b
+    name: payments-service
+    sources:
+    - https://github.com/akuity/kargo
+    type: application
+    urls:
+    - https://kubecon-2023-na-argocd-helm-support/payments/payments-service-v0.1.0.tgz
+    version: v0.1.0
+generated: "2023-11-03T20:49:37.986293644Z"
