@@ -1,5 +1,5 @@
 redis:
   address: localhost:6379
 image:
-  repository: ghcr.io/kubecon-2023-na-argocd-helm-support/payments/payments
+  repository: ghcr.io/kubecon-2023-na-argocd-helm-support/payments
   tag: latest
