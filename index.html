@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payments Service</title>
+</head>
+<body style="background-color: aliceblue">
+    <div style="margin: auto 0">
+        <h1>Awesome Payments Service</h1>
+        <div>
+            <h2>Payments Count: <span id="paymentsCount">Loading...</span></h2>
+        </div>
+        <button disabled id="makePayment">Make Payment</button>
+    </div>
+    <script>
+        let countElement = document.getElementById('paymentsCount');
+        let makePaymentButton = document.getElementById('makePayment');
+        fetch("/payments").then(function (response) {
+            return response.text();
+        }).then(function (text) {
+            countElement.innerText = text;
+            makePaymentButton.disabled = false;
+        });
+        makePaymentButton.addEventListener('click', function (e) {
+            fetch('/payments', {method: 'POST'
+            }).then(function (response) {
+                return response.text();
+            }).then(function (text) {
+                countElement.innerText = text;
+            });
+        });
+    </script>
+</body>
+</html>

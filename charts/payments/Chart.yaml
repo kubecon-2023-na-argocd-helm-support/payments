@@ -1,0 +1,8 @@
+apiVersion: v2
+name: payments-service
+description: Awesome Payments Service
+type: application
+version: 0.1.0
+appVersion: v0.1.0
+sources:
+  - https://github.com/akuity/kargo

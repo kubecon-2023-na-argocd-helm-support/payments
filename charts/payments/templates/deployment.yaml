@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payments
+  labels:
+    app: payments
+spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: payments
+    template:
+        metadata:
+          labels:
+            app: payments
+        spec:
+          containers:
+          - name: payments
+            image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+            ports:
+            - containerPort: 8080
+            env:
+            - name: REDIS_ADDRESS
+              value: {{ .Values.redis.address }}
