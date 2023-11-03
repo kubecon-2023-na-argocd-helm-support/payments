@@ -2,27 +2,15 @@ apiVersion: v1
 entries:
   payments-service:
   - apiVersion: v2
-    appVersion: v0.1.1
-    created: "2023-11-03T20:53:13.501742018Z"
-    description: Awesome Payments Service
-    digest: 1f86c6d50e49c9d6fda1779fa668f62bfe9d7167c05dd66e1d6609db6d42635c
-    name: payments-service
-    sources:
-    - https://github.com/akuity/kargo
-    type: application
-    urls:
-    - https://kubecon-2023-na-argocd-helm-support/payments/payments-service-v0.1.1.tgz
-    version: v0.1.1
-  - apiVersion: v2
     appVersion: v0.1.0
-    created: "2023-11-03T20:53:13.501570415Z"
+    created: "2023-11-03T21:26:59.568186658Z"
     description: Awesome Payments Service
-    digest: a29dceef1ae6a79303b156e6468d3daf576530f447633661c3d4d5233607dd5b
+    digest: b79c04b412a9c1969910703fe3bf1a057098758a097fe2d5d46f3364db318789
     name: payments-service
     sources:
     - https://github.com/akuity/kargo
     type: application
     urls:
-    - https://kubecon-2023-na-argocd-helm-support/payments/payments-service-v0.1.0.tgz
+    - https://kubecon-2023-na-argocd-helm-support.github.io/payments-service-v0.1.0.tgz
     version: v0.1.0
-generated: "2023-11-03T20:53:13.50121781Z"
+generated: "2023-11-03T21:26:59.567888913Z"
