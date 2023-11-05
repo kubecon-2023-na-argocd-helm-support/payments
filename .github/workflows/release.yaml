@@ -25,6 +25,14 @@ jobs:
           echo "version=$REF_NAME" >> "$GITHUB_OUTPUT"
           echo "tags=ghcr.io/kubecon-2023-na-argocd-helm-support/payments:$REF_NAME" >> "$GITHUB_OUTPUT"
         id: meta
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21.x'
+          cache-dependency-path: go.sum
+      - name: Build
+        run: |
+          CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o dist/payments ./main.go
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -36,13 +44,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
       - name: Build Image
-        uses: docker/build-push-action@v5
-        with:
-          tags: ${{ steps.meta.outputs.tags }}
-          platforms: linux/arm64
-          push: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+        env:
+          DOCKER_BUILDKIT: 1
+          TAGS: ${{ steps.meta.outputs.tags }}
+        run: |
+          docker buildx build --cache-from type=gha --cache-to type=gha,mode=max --platform linux/arm64 \
+            --tag $TAGS --push .
 
       - name: Configure Git
         run: |
@@ -59,6 +66,7 @@ jobs:
           sed -i "s/tag: latest/tag: $VERSION/g" charts/payments/values.yaml
           helm package --version $VERSION --app-version $VERSION charts/payments -d dist
           git checkout charts/payments/values.yaml
+          rm dist/payments
           git checkout gh-pages
           mv dist/* .
           helm repo index . --url https://kubecon-2023-na-argocd-helm-support.github.io/payments
