@@ -4,7 +4,7 @@ metadata:
   name: payments
 spec:
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 9080
+    targetPort: 8080
   selector:
     app: payments
