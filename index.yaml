@@ -2,8 +2,20 @@ apiVersion: v1
 entries:
   payments-service:
   - apiVersion: v2
+    appVersion: v0.1.18
+    created: "2023-11-07T22:04:37.8893257Z"
+    description: Awesome Payments Service
+    digest: df34f47e37024832e920c72ae472a0528a00da21767c3838cb786015591eed79
+    name: payments-service
+    sources:
+    - https://github.com/akuity/kargo
+    type: application
+    urls:
+    - https://kubecon-2023-na-argocd-helm-support.github.io/payments/payments-service-v0.1.18.tgz
+    version: v0.1.18
+  - apiVersion: v2
     appVersion: v0.1.17
-    created: "2023-11-07T20:26:03.483270033Z"
+    created: "2023-11-07T22:04:37.889200776Z"
     description: Awesome Payments Service
     digest: d1971a2ea2c7fd2ec89307652c9a834fb10fd58d8a9686abe826b07f3ca8c3d8
     name: payments-service
@@ -15,7 +27,7 @@ entries:
     version: v0.1.17
   - apiVersion: v2
     appVersion: v0.1.16
-    created: "2023-11-07T20:26:03.483005832Z"
+    created: "2023-11-07T22:04:37.889075401Z"
     description: Awesome Payments Service
     digest: 8b659f21490337932332a33b5a2f9ef9d30feb4009f1f99ec6bc21be32fc8147
     name: payments-service
@@ -27,7 +39,7 @@ entries:
     version: v0.1.16
   - apiVersion: v2
     appVersion: v0.1.15
-    created: "2023-11-07T20:26:03.482673931Z"
+    created: "2023-11-07T22:04:37.888941119Z"
     description: Awesome Payments Service
     digest: e103403ccbbf01bfc57fe9bd647eb77bd8e68f689b860e3422110fbcb8e8098f
     name: payments-service
@@ -39,7 +51,7 @@ entries:
     version: v0.1.15
   - apiVersion: v2
     appVersion: v0.1.14
-    created: "2023-11-07T20:26:03.482172928Z"
+    created: "2023-11-07T22:04:37.888809382Z"
     description: Awesome Payments Service
     digest: 411247b7e1491f9c6ba6d072d43d621499c0c3f53f0a68b6688cf423f3a082ef
     name: payments-service
@@ -51,7 +63,7 @@ entries:
     version: v0.1.14
   - apiVersion: v2
     appVersion: v0.1.13
-    created: "2023-11-07T20:26:03.481862727Z"
+    created: "2023-11-07T22:04:37.888670923Z"
     description: Awesome Payments Service
     digest: 4bca3fd4e75aa8cac0c07b1621e00485ac40fdf2b50ea7af8ccd69bccff52e61
     name: payments-service
@@ -63,7 +75,7 @@ entries:
     version: v0.1.13
   - apiVersion: v2
     appVersion: v0.1.12
-    created: "2023-11-07T20:26:03.480966022Z"
+    created: "2023-11-07T22:04:37.888545768Z"
     description: Awesome Payments Service
     digest: e0b939bb01b3fa226f3c5539b2f2d06354db96c30ddc14cb6d62d56e211c9e56
     name: payments-service
@@ -75,7 +87,7 @@ entries:
     version: v0.1.12
   - apiVersion: v2
     appVersion: v0.1.11
-    created: "2023-11-07T20:26:03.480782221Z"
+    created: "2023-11-07T22:04:37.888401728Z"
     description: Awesome Payments Service
     digest: a703df8b11585374b0b3029ff0a15d6c21f9ec008f0f267f6c04e173a0f52365
     name: payments-service
@@ -87,7 +99,7 @@ entries:
     version: v0.1.11
   - apiVersion: v2
     appVersion: v0.1.7
-    created: "2023-11-07T20:26:03.483697636Z"
+    created: "2023-11-07T22:04:37.889585968Z"
     description: Awesome Payments Service
     digest: 74ec000a99eb8cd82a4b497b387cb3bc1ad2bb8043a7104ae2065f34acadacc7
     name: payments-service
@@ -99,7 +111,7 @@ entries:
     version: v0.1.7
   - apiVersion: v2
     appVersion: v0.1.4
-    created: "2023-11-07T20:26:03.483485235Z"
+    created: "2023-11-07T22:04:37.889459311Z"
     description: Awesome Payments Service
     digest: 54ce100b7c2ccf26d744de369a366ad9a689df4f10ec5d26287bf8fad6c6f3b1
     name: payments-service
@@ -111,7 +123,7 @@ entries:
     version: v0.1.4
   - apiVersion: v2
     appVersion: v0.1.1
-    created: "2023-11-07T20:26:03.48060102Z"
+    created: "2023-11-07T22:04:37.88825344Z"
     description: Awesome Payments Service
     digest: d912ebb0314926fb61dc732840b606fd2d3304e16b254f3031338f995fe9f323
     name: payments-service
@@ -123,7 +135,7 @@ entries:
     version: v0.1.1
   - apiVersion: v2
     appVersion: v0.1.0
-    created: "2023-11-07T20:26:03.48043322Z"
+    created: "2023-11-07T22:04:37.88809349Z"
     description: Awesome Payments Service
     digest: 4c14beb4acd8bcb90b235670226fba14288f10768432f69ac2d2779bc7073de8
     name: payments-service
@@ -133,4 +145,4 @@ entries:
     urls:
     - https://kubecon-2023-na-argocd-helm-support.github.io/payments/payments-service-v0.1.0.tgz
     version: v0.1.0
-generated: "2023-11-07T20:26:03.480069718Z"
+generated: "2023-11-07T22:04:37.887811542Z"
